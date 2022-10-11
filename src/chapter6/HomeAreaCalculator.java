@@ -16,6 +16,7 @@ public class HomeAreaCalculator {
         room1.setWidth(3);
         double areaOfRoom1 = room1.calculateArea();
         System.out.println("The first room area: "+areaOfRoom1);
+        System.out.println("The perimeter is: " + room1.calculatePerimeter());
 
         /************
          * RECTANGLE 2
