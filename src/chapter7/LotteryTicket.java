@@ -17,10 +17,9 @@ public class LotteryTicket {
     public static void main (String args[]){
 
         int[] ticket = generateNumbers();
-        //Arrays.sort(ticket);
+        Arrays.sort(ticket );
         printTicket(ticket);
     }
-
     public  static int[] generateNumbers(){
         int[] ticket = new int[LENGTH];
 
@@ -35,8 +34,9 @@ public class LotteryTicket {
              */
             do{
                 randomNumber = random.nextInt(MAX_TICKET_NUMBER) + 1;
-            }while(binarySearch(ticket, randomNumber));
+            }while(search(ticket, randomNumber));
 
+            //Number is unique  if we get there. Add it to the array.
             ticket[i] = randomNumber;
         }
 
@@ -64,17 +64,22 @@ public class LotteryTicket {
         return isTheThere;
     }
 
-    public static boolean binarySearch(int[] otherArray, int numberToSearchFor){
+    public static boolean binarySearch(int[] array, int numberToSearchFor){
 
         //Array must be sorted first
-        int[] secondArray = otherArray;
-        Arrays.sort(secondArray);
+        //int[] secondArray = otherArray;
+        Arrays.sort(array);
+        for(int var : array){
+            System.out.print(var + " | ");
 
-        int index = Arrays.binarySearch(otherArray, numberToSearchFor);
+        }
+        System.out.println();
+        int index = Arrays.binarySearch(array, numberToSearchFor);
         if(index >= 0){
             return true;
         }
         else return false;
+
     }
 
 
